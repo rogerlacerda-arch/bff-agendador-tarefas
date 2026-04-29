@@ -1,7 +1,8 @@
 package com.rogerLacerda.bff_agendador_tarefas.business;
 
 
-import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTOResponse;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.in.TarefasDTORequest;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.out.TarefasDTOResponse;
 import com.rogerLacerda.bff_agendador_tarefas.business.enums.StatusNotificacaoEnum;
 import com.rogerLacerda.bff_agendador_tarefas.infrastructure.client.TarefasClient;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class TarefasService {
 
     private final TarefasClient tarefasClient;
 
-    public TarefasDTOResponse gravarTarefa(String token, TarefasDTOResponse dto) {
+    public TarefasDTOResponse gravarTarefa(String token, TarefasDTORequest dto) {
         return tarefasClient.gravarTarefa(dto, token);
     }
 
@@ -38,7 +39,7 @@ public class TarefasService {
         return tarefasClient.alteraStatusNotificacao(status, id, token);
     }
 
-    public TarefasDTOResponse updateTarefas(TarefasDTOResponse dto, String id, String token) {
+    public TarefasDTOResponse updateTarefas(TarefasDTORequest dto, String id, String token) {
         return tarefasClient.updateTarefas(dto, id, token);
     }
 }

@@ -1,7 +1,7 @@
 package com.rogerLacerda.bff_agendador_tarefas.infrastructure.client;
 
 
-import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTOResponse;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.out.TarefasDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

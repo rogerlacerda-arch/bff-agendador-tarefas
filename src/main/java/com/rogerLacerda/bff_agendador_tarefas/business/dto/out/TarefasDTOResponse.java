@@ -1,4 +1,4 @@
-package com.rogerLacerda.bff_agendador_tarefas.business.dto;
+package com.rogerLacerda.bff_agendador_tarefas.business.dto.out;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

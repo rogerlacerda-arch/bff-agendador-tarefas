@@ -1,6 +1,7 @@
 package com.rogerLacerda.bff_agendador_tarefas.infrastructure.client;
 
-import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTOResponse;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.in.TarefasDTORequest;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.out.TarefasDTOResponse;
 import com.rogerLacerda.bff_agendador_tarefas.business.enums.StatusNotificacaoEnum;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface TarefasClient {
 
     @PostMapping
-    TarefasDTOResponse gravarTarefa(@RequestBody TarefasDTOResponse dto,
+    TarefasDTOResponse gravarTarefa(@RequestBody TarefasDTORequest dto,
                                     @RequestHeader("Authorization") String token);
 
 
@@ -38,7 +39,7 @@ public interface TarefasClient {
                                                 @RequestHeader("Authorization") String token);
 
     @PutMapping
-    TarefasDTOResponse updateTarefas (@RequestBody TarefasDTOResponse dto,
+    TarefasDTOResponse updateTarefas (@RequestBody TarefasDTORequest dto,
                                       @RequestParam("id") String id,
                                       @RequestHeader("Authorization") String token);
     }

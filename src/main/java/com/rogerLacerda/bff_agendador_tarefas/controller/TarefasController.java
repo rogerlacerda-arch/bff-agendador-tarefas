@@ -2,7 +2,8 @@ package com.rogerLacerda.bff_agendador_tarefas.controller;
 
 
 import com.rogerLacerda.bff_agendador_tarefas.business.TarefasService;
-import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTOResponse;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.in.TarefasDTORequest;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.out.TarefasDTOResponse;
 import com.rogerLacerda.bff_agendador_tarefas.business.enums.StatusNotificacaoEnum;
 import com.rogerLacerda.bff_agendador_tarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,7 +31,7 @@ public class TarefasController {
     @Operation(summary = "Salvar Tarefas de Usuários", description = "Cria um novo tarefa")
     @ApiResponse(responseCode = "200", description = "Usuário salva com sucesso")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public ResponseEntity<TarefasDTOResponse> gravarTarefa(@RequestBody TarefasDTOResponse dto,
+    public ResponseEntity<TarefasDTOResponse> gravarTarefa(@RequestBody TarefasDTORequest dto,
                                                            @RequestHeader(value = "Authorization", required = false) String token) {
         return ResponseEntity.ok(tarefasService.gravarTarefa(token, dto));
     }
@@ -79,7 +80,7 @@ public class TarefasController {
     @Operation (summary = "Altera dados da tarefa", description = "Altareda dados da Tarefas")
     @ApiResponse(responseCode = "200", description = "Tarefas Alterada")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public ResponseEntity<TarefasDTOResponse> updateTarefas (@RequestBody TarefasDTOResponse dto,
+    public ResponseEntity<TarefasDTOResponse> updateTarefas (@RequestBody TarefasDTORequest dto,
                                                              @RequestParam("id") String id,
                                                              @RequestHeader(name = "Authorization", required = false) String token) {
         return ResponseEntity.ok(tarefasService.updateTarefas(dto, id,token));
