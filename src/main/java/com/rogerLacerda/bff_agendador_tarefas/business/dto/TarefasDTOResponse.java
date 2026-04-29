@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 
-public class TarefasDTO {
+public class TarefasDTOResponse {
 
 
         private String id;

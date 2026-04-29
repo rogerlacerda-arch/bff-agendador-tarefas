@@ -1,7 +1,7 @@
 package com.rogerLacerda.bff_agendador_tarefas.business;
 
 
-import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTO;
+import com.rogerLacerda.bff_agendador_tarefas.business.dto.TarefasDTOResponse;
 import com.rogerLacerda.bff_agendador_tarefas.business.enums.StatusNotificacaoEnum;
 import com.rogerLacerda.bff_agendador_tarefas.infrastructure.client.TarefasClient;
 import lombok.RequiredArgsConstructor;
@@ -16,17 +16,17 @@ public class TarefasService {
 
     private final TarefasClient tarefasClient;
 
-    public TarefasDTO gravarTarefa(String token, TarefasDTO dto) {
+    public TarefasDTOResponse gravarTarefa(String token, TarefasDTOResponse dto) {
         return tarefasClient.gravarTarefa(dto, token);
     }
 
-    public List<TarefasDTO> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial,
-                                                            LocalDateTime dataFinal,
-                                                            String token) {
+    public List<TarefasDTOResponse> buscaTarefasAgendadasPorPeriodo(LocalDateTime dataInicial,
+                                                                    LocalDateTime dataFinal,
+                                                                    String token) {
         return tarefasClient.buscaListaDeTarefasPorPeriodo(dataInicial, dataFinal, token);
     }
 
-    public List<TarefasDTO> buscaTarefaPorEmail(String token) {
+    public List<TarefasDTOResponse> buscaTarefaPorEmail(String token) {
         return tarefasClient.buscaTarefasPorEmail(token);
     }
 
@@ -34,11 +34,11 @@ public class TarefasService {
        tarefasClient.deletaTarefasPorId(id, token);
     }
 
-    public TarefasDTO alteraStatus(StatusNotificacaoEnum status, String id, String token) {
+    public TarefasDTOResponse alteraStatus(StatusNotificacaoEnum status, String id, String token) {
         return tarefasClient.alteraStatusNotificacao(status, id, token);
     }
 
-    public TarefasDTO updateTarefas(TarefasDTO dto, String id, String token) {
+    public TarefasDTOResponse updateTarefas(TarefasDTOResponse dto, String id, String token) {
         return tarefasClient.updateTarefas(dto, id, token);
     }
 }
